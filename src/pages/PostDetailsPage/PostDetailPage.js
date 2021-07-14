@@ -1,10 +1,12 @@
 import React from 'react';
+import useProtectedPage from '../../hooks/useProtectedPage';
 
-const postDetails = () =>{
+const PostDetails = () =>{
+    useProtectedPage()
     return (
         <div>
             <h1>Post Details</h1>
         </div>
     )
 }
-export default postDetails;
+export default PostDetails;

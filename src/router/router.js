@@ -6,33 +6,29 @@ import AddPost from '../pages/AddPostPage/AddPostPage';
 import PostFeed from '../pages/PostFeedPage/PostFeedPage';
 import PostDetails from '../pages/PostDetailsPage/PostDetailPage';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
-import Header from '../componentes/Header';
 
-const Router = () => {
+const Router = ({rightButton, setRightButton}) => {
     return (
-        <BrowserRouter>
-            <Switch>
-                <Header/>
-                <Route exact path="/login">
-                    <Login/>
-                </Route>
-                <Route  exact path="/signup">
-                    <Signup/>
-                </Route>
-                <Route exact path="/addpost">
-                    <AddPost/>
-                </Route>
-                <Route exact path="/">
-                    <PostFeed/>
-                </Route>
-                <Route exact path="/details/:id">
-                    <PostDetails/>
-                </Route>
-                <Route >
-                    <ErrorPage/>
-                </Route>
-            </Switch>
-        </BrowserRouter>
+        <Switch styled="display=flex">
+            <Route exact path="/login">
+                <Login rightButton={rightButton} setRightButton={setRightButton}/>
+            </Route>
+            <Route exact path="/signup">
+                <Signup />
+            </Route>
+            <Route exact path="/addpost">
+                <AddPost />
+            </Route>
+            <Route exact path="/">
+                <PostFeed />
+            </Route>
+            <Route exact path="/details/:id">
+                <PostDetails />
+            </Route>
+            <Route >
+                <ErrorPage />
+            </Route>
+        </Switch>
     )
 }
 export default Router;
